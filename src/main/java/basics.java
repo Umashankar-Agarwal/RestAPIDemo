@@ -5,6 +5,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.equalTo;
 
@@ -12,7 +16,7 @@ public class basics {
 
     private static final Logger log = LoggerFactory.getLogger(basics.class);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
 //    RestAssured.baseURI = “baseURL”;
 //    given → all input details ( Parameters , Authorizations ,
@@ -27,7 +31,10 @@ public class basics {
         // Post Place --> using the post methods --> to add the place
         String addPlaceResponse = given().log().all().queryParam("key", "qaclick123")
                 .header("Content-Type", "application/json")
-                .body(payloads.addPlace())
+//                .body(payloads.addPlace())
+
+                // Another method to pass the json from file
+                .body(new String(Files.readAllBytes(Paths.get("C:\\Users\\335418\\IdeaProjects\\JsonFiles.txt"))))
                 .when().post("maps/api/place/add/json")
                 // Validate the status code , Header (response from the server) , body value
                 .then().log().all().assertThat().statusCode(200)
