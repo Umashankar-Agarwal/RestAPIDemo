@@ -80,4 +80,22 @@ public class payloads {
                 
                 }""";
     }
+
+    public static String addBookLibraryPayload(String isbn , String aisle){
+
+        return "{\n" +
+                "\"name\":\"Learn Appium Automation with Java\",\n" +
+                "\"isbn\":\""+isbn+"\",\n" +
+                "\"aisle\":\""+aisle+"\",\n" +
+                "\"author\":\"John foe\"\n" +
+                "}\n";
+    }
+
+    public static String deleteBookPayload(String ID){
+        return "{\n" +
+                "\n" +
+                "\"ID\" : \""+ID+"\"\n" +
+                "\n" +
+                "} \n";
+    }
 }
