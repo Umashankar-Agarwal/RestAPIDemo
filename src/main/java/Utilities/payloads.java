@@ -98,4 +98,22 @@ public class payloads {
                 "\n" +
                 "} \n";
     }
+
+    public static String createBug(){
+
+        return"{\n" +
+                "    \"fields\": {\n" +
+                "       \"project\":\n" +
+                "       {\n" +
+                "          \"key\": \"TEST\"\n" +
+                "       },\n" +
+                "       \"summary\": \"REST ye merry gentlemen.\",\n" +
+                "       \"description\": \"Creating of an issue using project keys and issue type names using the REST API\",\n" +
+                "       \"issuetype\": {\n" +
+                "          \"name\": \"Bug\"\n" +
+                "       }\n" +
+                "   }\n" +
+                "}\n";
+
+    }
 }
