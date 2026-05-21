@@ -1,4 +1,4 @@
-import files.ReUsablesMethods;
+import Utilities.ReUsablesMethods;
 import io.restassured.path.json.JsonPath;
 
 import static io.restassured.RestAssured.*;
@@ -20,6 +20,9 @@ public class OAuthValidation {
         JsonPath js = ReUsablesMethods.jsonConverter(authorizationResponse);
         String accessToken = js.get("access_token");
         System.out.println(accessToken);
+
+        // !<--->!<--->!<--->!<---> This below we have just used the normal way to extract the response & work on it !<--->!<--->!<--->!<--->
+        // !<--->!<--->!<--->!<---> & for Deserialization we have the seperate class !<--->!<--->!<--->!<--->!<--->!<--->!<--->!<--->!<--->!<--->
 
         String courseDetailsResponse = given().queryParam("access_token", accessToken)
                 .when().log().all().get("https://rahulshettyacademy.com/oauthapi/getCourseDetails").asString();

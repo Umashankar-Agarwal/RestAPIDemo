@@ -1,4 +1,4 @@
-import files.payloads;
+import Utilities.payloads;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import org.slf4j.Logger;
