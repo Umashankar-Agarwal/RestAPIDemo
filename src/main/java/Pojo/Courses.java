@@ -6,33 +6,33 @@ public class Courses {
 
     // child json --> Child Pojo Class
 
-    private List<webAutomation> webAutomation;
+    private List<WebAutomation> webAutomation;
 
-    private List<api> api;
+    private List<Api> api;
 
-    private List<mobile> mobile;
+    private List<Mobile> mobile;
 
-    public List<webAutomation> getWebAutomation() {
+    public List<WebAutomation> getWebAutomation() {
         return webAutomation;
     }
 
-    public void setWebAutomation(List<webAutomation> webAutomation) {
+    public void setWebAutomation(List<WebAutomation> webAutomation) {
         this.webAutomation = webAutomation;
     }
 
-    public List<api> getApi() {
+    public List<Api> getApi() {
         return api;
     }
 
-    public void setApi(List<api> api) {
+    public void setApi(List<Api> api) {
         this.api = api;
     }
 
-    public List<mobile> getMobile() {
+    public List<Mobile> getMobile() {
         return mobile;
     }
 
-    public void setMobile(List<mobile> mobile) {
+    public void setMobile(List<Mobile> mobile) {
         this.mobile = mobile;
     }
 }

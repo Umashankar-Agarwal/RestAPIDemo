@@ -1,6 +1,6 @@
 package Pojo;
 
-public class mobile {
+public class Mobile {
 
     // Sub Child Json --> Sub child Pojo Class
 

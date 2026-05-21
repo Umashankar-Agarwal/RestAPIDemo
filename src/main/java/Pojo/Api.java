@@ -1,10 +1,8 @@
 package Pojo;
 
-public class webAutomation {
-
+public class Api  {
 
     // Sub Child Json --> Sub child Pojo Class
-
     private String courseTitle;
 
     private String price;

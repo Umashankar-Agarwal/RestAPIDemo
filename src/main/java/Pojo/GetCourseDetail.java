@@ -1,6 +1,6 @@
 package Pojo;
 
-public class getCourseDetail {
+public class GetCourseDetail  {
 
     // Parent Json -> Parent Pojo Class
 
