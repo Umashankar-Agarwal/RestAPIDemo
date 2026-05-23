@@ -9,7 +9,7 @@ import java.io.File;
 
 import static io.restassured.RestAssured.given;
 
-public class PlayWithJiraBug {
+public class PlayWithJiraBugTest {
 
     // Here we are going to play with
     // Creating the bug in jira (real time api )

@@ -4,15 +4,19 @@ import Pojo.WebAutomation;
 import Utilities.ReUsablesMethods;
 import io.restassured.path.json.JsonPath;
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.*;
 import static io.restassured.RestAssured.given;
+
 import java.util.*;
 
-public class DeserializationPojoImplementation{
-    public static void main(String[] args) {
+public class DeserializationPojoImplementationTest {
 
-        String [] expectedWebAutomationCoursesList = {"Selenium Webdriver Java" , "Cypress", "Protractor"};
+    @Test
+    public void Deserialization() {
+
+        String[] expectedWebAutomationCoursesList = {"Selenium Webdriver Java", "Cypress", "Protractor"};
         useRelaxedHTTPSValidation();
         baseURI = "https://rahulshettyacademy.com/oauthapi/oauth2/resourceOwner/token";
 
@@ -29,9 +33,9 @@ public class DeserializationPojoImplementation{
         System.out.println(accessToken);
 
         // !<--->!<--->!<--->!<--->!<--->!<--->Getting the actual course details response !<--->!<--->!<--->!<--->!<--->!<--->!<--->!<--->
-        GetCourseDetail  cs =
+        GetCourseDetail cs =
                 given().queryParam("access_token", accessToken)
-                        .when().log().all().get("https://rahulshettyacademy.com/oauthapi/getCourseDetails").as(GetCourseDetail .class);
+                        .when().log().all().get("https://rahulshettyacademy.com/oauthapi/getCourseDetails").as(GetCourseDetail.class);
 
         // !<--->!<--->!<--->!<---> General Questions!<--->!<--->!<--->!<--->
         System.out.println("Instructor : " + cs.getInstructor());
@@ -49,16 +53,16 @@ public class DeserializationPojoImplementation{
         // !<--->!<--->!<--->!<--->!<--->!<---> 2. print all the course title of WebAutomation Courses !<--->!<--->!<--->!<--->!<--->
 
         List<WebAutomation> wcList = cs.getCourses().getWebAutomation();
-        ArrayList<String> actualCourseTitle = new ArrayList<String>();
+        ArrayList<String> actualCourseTitle = new ArrayList<>();
         System.out.println("Below are the available courses for WebAutomation");
-        for (WebAutomation wa : wcList){
+        for (WebAutomation wa : wcList) {
             System.out.println(wa.getCourseTitle());
 
             // !<--->!<--->!<--->!<--->!<--->!<---> Apply Assertion & Validate the Expected & actual  !<--->!<--->!<--->!<--->!<--->
 
             actualCourseTitle.add(wa.getCourseTitle());
         }
-        List<String > expectedList = Arrays.asList(expectedWebAutomationCoursesList);
+        List<String> expectedList = Arrays.asList(expectedWebAutomationCoursesList);
 
         Assert.assertEquals(expectedList, actualCourseTitle, "List Does not matches");
 

@@ -3,7 +3,7 @@ import io.restassured.path.json.JsonPath;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class playWithJson {
+public class PlayWithJsonTest {
 
     public static void main(String[] args) {
 
@@ -58,7 +58,7 @@ public class playWithJson {
         } else {
             System.out.println("Price does not matches");
         }
-        Assert.assertEquals(totalPrice,purchasedAmount);
+        Assert.assertEquals(totalPrice, purchasedAmount);
 
 
     }

@@ -1,11 +1,13 @@
 import Utilities.ReUsablesMethods;
 import io.restassured.path.json.JsonPath;
+import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.*;
 
-public class OAuthValidation {
+public class OAuthValidationTest {
 
-    public static void main(String[] args) {
+    @Test
+    public void oAuthValidation() {
 
         useRelaxedHTTPSValidation();
         baseURI = "https://rahulshettyacademy.com/oauthapi/oauth2/resourceOwner/token";

@@ -10,7 +10,7 @@ import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.useRelaxedHTTPSValidation;
 import static org.hamcrest.Matchers.equalTo;
 
-public class serializationPOJOImp {
+public class SerializationPOJOImpTest {
 
     @Test
     public void serializationAddPlace() {

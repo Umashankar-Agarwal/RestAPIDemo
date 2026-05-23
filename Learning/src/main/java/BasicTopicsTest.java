@@ -1,9 +1,8 @@
 import Utilities.payloads;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -12,11 +11,10 @@ import java.nio.file.Paths;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.equalTo;
 
-public class basics {
+public class BasicTopicsTest {
 
-    private static final Logger log = LoggerFactory.getLogger(basics.class);
-
-    public static void main(String[] args) throws IOException {
+    @Test
+    public void basics() throws IOException {
 
 //    RestAssured.baseURI = “baseURL”;
 //    given → all input details ( Parameters , Authorizations ,

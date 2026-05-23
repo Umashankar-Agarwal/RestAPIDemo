@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.*;
 
 
-public class dynamicJson {
+public class DynamicJsonTest {
 
     @Test(dataProvider = "LibraryAPIData" , dataProviderClass = dataprovider.class)
     public void addBookLibrary(String isbn , String aisle){
