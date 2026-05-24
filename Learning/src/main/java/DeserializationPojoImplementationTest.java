@@ -1,15 +1,16 @@
 import Pojo.Api;
 import Pojo.GetCourseDetail;
 import Pojo.WebAutomation;
-import Utilities.ReUsablesMethods;
 import io.restassured.path.json.JsonPath;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.ReUsablesMethods;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import static io.restassured.RestAssured.*;
-import static io.restassured.RestAssured.given;
-
-import java.util.*;
 
 public class DeserializationPojoImplementationTest {
 

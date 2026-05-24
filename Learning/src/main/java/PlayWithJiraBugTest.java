@@ -1,9 +1,9 @@
-import Utilities.ReUsablesMethods;
-import Utilities.payloads;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import org.testng.annotations.Test;
+import utils.ReUsablesMethods;
+import utils.payloads;
 
 import java.io.File;
 
