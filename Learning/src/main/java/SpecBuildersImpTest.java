@@ -24,14 +24,14 @@ public class SpecBuildersImpTest {
 
         RestAssured.useRelaxedHTTPSValidation();
 
-        // !<----->!!<----->! Apply Request Specification!<----->!!<----->!!<----->!!<----->!
+        // !<----->!!<----->! Apply Request Specification !<----->!!<----->!!<----->!!<----->!
 
         RequestSpecification requestSpec = new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com")
                 .setContentType(ContentType.JSON).addQueryParam("key", "qaclick123").build();
 
         RequestSpecification res = given().spec(requestSpec).body(new String(Files.readAllBytes(Paths.get("C:\\Users\\335418\\IdeaProjects\\JsonFiles.txt"))));
 
-        // !<----->!!<----->! Apply Request Specification!<----->!!<----->!!<----->!!<----->!
+        // !<----->!!<----->! Apply Request Specification !<----->!!<----->!!<----->!!<----->!
         ResponseSpecification responseSpec = new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON).build();
 
         // !<----->!!<----->! Apply Builders & form the exact !<----->!!<----->!!<----->!!<----->!
@@ -43,7 +43,7 @@ public class SpecBuildersImpTest {
         JsonPath js = new JsonPath(addPlaceResponse);
         String place_ID = js.getString("place_id");
 
-        // Put Place --> use the place ID to update th eaddress
+        // Put Place --> use the place ID to update the address
 
         String newAddress = "Park Hospital , Gurugaram";
 
