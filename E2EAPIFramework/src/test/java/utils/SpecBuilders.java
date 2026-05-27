@@ -19,6 +19,8 @@ public class SpecBuilders {
     protected static final String key = "key";
     protected static final String value = "qaclick123";
 
+    protected static RequestSpecification req;
+
     // !<----->!!<----->! Applying the get value of BaseURL from the Global Properties file  !<----->!!<----->!
     public static String getGlobalValue(String key) throws IOException {
 
@@ -30,17 +32,21 @@ public class SpecBuilders {
 
     // !<----->!!<----->! Request Specification Builders to provide the common Request architecture !<----->!!<----->!
     public static RequestSpecification requestSpec() throws IOException {
-
-        PrintStream log = new PrintStream(new FileOutputStream("logging.txt"));
-        return new RequestSpecBuilder().setBaseUri(getGlobalValue("baseURL")).setContentType(ContentType.JSON).addQueryParam(key, value)
-                .addFilter(RequestLoggingFilter.logRequestTo(log))
-                .addFilter(ResponseLoggingFilter.logResponseTo(log))
-                .build();
+        // To Apply the logging all the request & response
+        if (req == null) {
+            PrintStream log = new PrintStream(new FileOutputStream("logging.txt"));
+            req = new RequestSpecBuilder().setBaseUri(getGlobalValue("baseURL")).setContentType(ContentType.JSON).addQueryParam(key, value)
+                    // !<----->!!<----->! Added Filtering so we can have the logging for each API Request Logging for request & response!<----->!!<----->!!<----->!!<----->!
+                    .addFilter(RequestLoggingFilter.logRequestTo(log))
+                    .addFilter(ResponseLoggingFilter.logResponseTo(log))
+                    .build();
+        }
+        return req;
     }
 
     // !<----->!!<----->! Grouping the common Response !<----->!!<----->!
-    public static ResponseSpecification responseSpec (){
-        return  new ResponseSpecBuilder().expectStatusCode(200).build();
+    public static ResponseSpecification responseSpec() {
+        return new ResponseSpecBuilder().expectStatusCode(200).build();
 
     }
 }

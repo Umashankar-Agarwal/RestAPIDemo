@@ -13,7 +13,6 @@ public class TestData {
 
     public static AddPlace addPlacePayload(Map<String, String> row){
 
-
         AddLocation addLocation = new AddLocation();
         addLocation.setLat(Double.parseDouble(row.get("lat")));
         addLocation.setLng(Double.parseDouble(row.get("lng")));
