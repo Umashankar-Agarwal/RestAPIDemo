@@ -11,5 +11,8 @@
         <module name="EcommProject" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="E2EAPIFramework" target="25" />
+    </bytecodeTargetLevel>
   </component>
 </project>
