@@ -1,6 +1,6 @@
-import Utilities.ReUsablesMethods;
 import io.restassured.path.json.JsonPath;
 import org.testng.annotations.Test;
+import utils.ReUsablesMethods;
 
 import static io.restassured.RestAssured.*;
 

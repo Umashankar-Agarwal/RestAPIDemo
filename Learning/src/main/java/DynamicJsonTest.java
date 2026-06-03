@@ -1,11 +1,12 @@
-import Utilities.ReUsablesMethods;
-import Utilities.dataprovider;
-import Utilities.payloads;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import static io.restassured.RestAssured.*;
+import utils.ReUsablesMethods;
+import utils.dataprovider;
+import utils.payloads;
+
+import static io.restassured.RestAssured.given;
 
 
 public class DynamicJsonTest {
