@@ -5,3 +5,8 @@ out/
 .settings/
 .classpath
 .project
+**/target/
+*.class
+# Local API Test Logs
+logging.txt
+**/logging.txt

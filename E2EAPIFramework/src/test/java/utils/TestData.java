@@ -31,4 +31,10 @@ public class TestData {
         return addPlace;
     }
 
+    public static String deletePlacePayload(String placeID){
+        return "{\n" +
+                "    \"place_id\":\""+placeID+"\"\n" +
+                "}\n";
+    }
+
 }
