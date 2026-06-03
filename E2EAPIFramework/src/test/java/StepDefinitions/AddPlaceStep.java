@@ -26,7 +26,6 @@ import static org.testng.AssertJUnit.assertEquals;
 public class AddPlaceStep {
 
     protected RequestSpecification mapsBaseURI;
-    protected RequestSpecification reqAddOrUpdate;
     protected static Response response;
     static String extractedId;
 
@@ -40,7 +39,7 @@ public class AddPlaceStep {
     @Given("the request body contains the following location details:")
     public void requestBodySetup(DataTable dataTable) {
         List<Map<String, String>> rows = dataTable.asMaps(String.class, String.class);
-        reqAddOrUpdate = mapsBaseURI.body(TestData.addPlacePayload(rows.getFirst()));
+        mapsBaseURI.body(TestData.addPlacePayload(rows.getFirst()));
     }
 
     @When("I send a {string} request to {string}")
@@ -51,7 +50,7 @@ public class AddPlaceStep {
 
         switch (method.toUpperCase()) {
             case "POST":
-                response = reqAddOrUpdate.when().post(apiResources.getResource());
+                response = mapsBaseURI.when().post(apiResources.getResource());
                 break;
 
             case "GET":
@@ -118,5 +117,10 @@ public class AddPlaceStep {
         Assert.assertEquals(actualResponse.getTypes(), expectedTypeList);
         Assert.assertEquals(actualResponse.getLocation().getLng(), Double.parseDouble(row.get("lng")));
         Assert.assertEquals(actualResponse.getLocation().getLat(), Double.parseDouble(row.get("lat")));
+    }
+
+    @Given("delete place payload")
+    public void deletePlacePayload() {
+        mapsBaseURI.body(TestData.deletePlacePayload(extractedId));
     }
 }
