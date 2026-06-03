@@ -1,5 +1,8 @@
 package PojoClasses;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.Arrays;
 import java.util.List;
 
 public class AddPlace {
@@ -53,14 +56,6 @@ public class AddPlace {
         this.address = address;
     }
 
-    public List<String> getTypes() {
-        return types;
-    }
-
-    public void setTypes(List<String> types) {
-        this.types = types;
-    }
-
     public String getWebsite() {
         return website;
     }
@@ -77,5 +72,23 @@ public class AddPlace {
         this.language = language;
     }
 
+    // Getter: Used for Serialization (Request) and your Assertion
+    @JsonProperty("types")
+    public List<String> getTypes() {
+        return types;
+    }
 
+    // Setter 1: Standard setter used when constructing the Request payload
+    public void setTypes(List<String> types) {
+        this.types = types;
+    }
+
+    // Setter 2: Used for Deserialization (Response)
+    // This intercepts the String, splits it, and saves it into your List
+    @JsonProperty("types")
+    public void setTypes(String typesString) {
+        // split(",\\s*") handles both "a,b" and "a, b" safely
+        this.types = Arrays.asList(typesString.split(",\\s*"));
+    }
 }
+
