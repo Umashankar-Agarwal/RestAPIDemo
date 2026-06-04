@@ -9,6 +9,7 @@ Feature: Place Validations via Maps API
   Background:
     Given the Maps API base URI is configured with query parameter
 
+  @AddPlace
   Scenario Outline: Successfully add a new place with valid details
     Given the request body contains the following location details:
       | lat   | lng   | accuracy   | name   | phone_number   | address   | types   | website   | language   |
@@ -22,6 +23,7 @@ Feature: Place Validations via Maps API
       | lat       | lng       | accuracy | name    | phone_number       | address             | types           | website            | language |
       | 51.507351 | -0.127758 | 32       | Test  2 | (+44) 20 7946 0192 | 10 Baker St, London | clinic,pharmacy | https://apexmed.co | English  |
 
+  @getPlace
   Scenario Outline: Successfully retrieve the place with valid details
     Given the request body contains the stored place id
     When I send a "GET" request to "getPlaceAPI"
@@ -34,6 +36,7 @@ Feature: Place Validations via Maps API
       | lat       | lng       | accuracy | name    | phone_number       | address             | types           | website            | language |
       | 51.507351 | -0.127758 | 32       | Test  2 | (+44) 20 7946 0192 | 10 Baker St, London | clinic,pharmacy | https://apexmed.co | English  |
 
+  @deletePlace
   Scenario: Successfully delete the place from the server
     Given delete place payload
     When I send a "DELETE" request to "deletePlaceAPI"

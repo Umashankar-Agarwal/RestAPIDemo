@@ -25,7 +25,7 @@ import static org.testng.AssertJUnit.assertEquals;
 
 public class AddPlaceStep {
 
-    protected RequestSpecification mapsBaseURI;
+    RequestSpecification mapsBaseURI;
     protected static Response response;
     static String extractedId;
 
@@ -39,7 +39,11 @@ public class AddPlaceStep {
     @Given("the request body contains the following location details:")
     public void requestBodySetup(DataTable dataTable) {
         List<Map<String, String>> rows = dataTable.asMaps(String.class, String.class);
-        mapsBaseURI.body(TestData.addPlacePayload(rows.getFirst()));
+        applyPayload(rows.getFirst());
+    }
+
+    public void applyPayload(Map<String, String> dataMap) {
+        mapsBaseURI.body(TestData.addPlacePayload(dataMap));
     }
 
     @When("I send a {string} request to {string}")
