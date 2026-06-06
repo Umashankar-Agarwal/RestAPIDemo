@@ -12,6 +12,7 @@
         <module>EcommProject</module>
         <module>Learning</module>
         <module>E2EAPIFramework</module>
+        <module>GraphQL</module>
     </modules>
 
     <properties>
