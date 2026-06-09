@@ -13,6 +13,7 @@
         <module>Learning</module>
         <module>E2EAPIFramework</module>
         <module>GraphQL</module>
+        <module>oAuthProject</module>
     </modules>
 
     <properties>
