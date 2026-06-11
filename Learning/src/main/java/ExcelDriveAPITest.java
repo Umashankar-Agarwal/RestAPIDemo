@@ -4,7 +4,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.ExcelTestData;
 import utils.ReUsablesMethods;
-import utils.payloads;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,7 +19,7 @@ public class ExcelDriveAPITest {
 
 //        Derive the Data to HashMap from Excel
         ExcelTestData excelTestData = new ExcelTestData();
-        ArrayList<String> data = excelTestData.getData("Data" , "RestAssuredLibraryAPI");
+        ArrayList<String> data = excelTestData.getData("RestAssured API " , "RestAssuredLibraryAPI");
         HashMap<String , Object > jsonAsMap = new HashMap<>();
 
         jsonAsMap.put("name",data.get(1));
@@ -42,9 +41,12 @@ public class ExcelDriveAPITest {
         String bookID = js.get("ID").toString();
         System.out.println("ID : " + bookID);
 
-//        // Delete Book --> Delete API
+        // Delete Book --> Delete API
 
-        String deleteResponse = given().header("Content-Type", "application/json").body(payloads.deleteBookPayload(bookID))
+        HashMap<String,Object> deleteMap = new HashMap<>();
+        deleteMap.put("ID" , bookID);
+        String deleteResponse = given().header("Content-Type", "application/json")
+                .body(deleteMap)
                 .when().post("Library/DeleteBook.php")
                 .then().log().all().assertThat().statusCode(200).extract().response().asString();
 
